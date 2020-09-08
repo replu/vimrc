@@ -1,9 +1,69 @@
+call plug#begin('~/.nvim/plugged')
+
+" Color theme
+Plug 'cocopon/iceberg.vim'
+Plug 'altercation/vim-colors-solarized'
+Plug 'NLKNguyen/papercolor-theme'
+
+" Appearance
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'haya14busa/vim-operator-flashy'
+Plug 'rhysd/vim-operator-surround'
+Plug 'kana/vim-operator-user'
+
+" Util
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+Plug 'tyru/open-browser-github.vim'
+Plug 'vim-scripts/open-browser.vim'
+Plug 'mattn/webapi-vim'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'mhinz/vim-startify'
+Plug 'glidenote/memolist.vim'
+Plug 'Shougo/denite.nvim'
+Plug 'kassio/neoterm'
+Plug 'cohama/lexima.vim'
+Plug 'haya14busa/vim-edgemotion'
+Plug 'othree/html5.vim'
+Plug 't9md/vim-choosewin'
+Plug 'tomtom/tcomment_vim'
+
+" Filer
+Plug 'Shougo/defx.nvim'
+Plug 'kristijanhusak/defx-icons'
+Plug 'ryanoasis/vim-devicons'
+Plug 'kristijanhusak/defx-icons'
+
+
+Plug 'thinca/vim-quickrun'
+Plug 'sjl/gundo.vim'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'majutsushi/tagbar'
+
+" lsp
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+
+Plug 'mattn/vim-goimports'
+
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'
+
+call plug#end()
+
 filetype plugin indent on
 
 let g:home = expand('~')
 let g:python_home = g:home . '/.pyenv/shims'
 let g:python_host_prog = g:python_home . '/python2'
 let g:python3_host_prog = g:python_home . '/python3'
+
+for plugin in glob(g:home.'/.config/nvim/plugins/*', 1, 1)
+	execute "source " . plugin
+endfor
 
 "------------------------------------------------------------
 "検索関係
@@ -117,7 +177,6 @@ set termguicolors
 set pumblend=20
 
 " don't give |ins-completion-menu| messages.
-set shortmess+=c
 " always show signcolumns
 set signcolumn=yes
 "}}}
@@ -130,7 +189,7 @@ set background=dark
 
 "color schemes with plugin
 " colorscheme iceberg
-" colorscheme PaperColor
+colorscheme PaperColor
 
 let mapleader = "\<Space>"
 
