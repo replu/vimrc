@@ -39,6 +39,9 @@ Plug 'sjl/gundo.vim'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'majutsushi/tagbar'
 
+" Template
+Plug 'mattn/sonictemplate-vim'
+
 " lsp
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
