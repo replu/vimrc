@@ -49,8 +49,7 @@ Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
 Plug 'mattn/vim-goimports'
 
-Plug 'hrsh7th/vim-vsnip'
-Plug 'hrsh7th/vim-vsnip-integ'
+Plug 'reireias/vim-cheatsheet'
 
 call plug#end()
 
@@ -315,3 +314,9 @@ augroup filetypeds
 	autocmd BufNewFile,BufRead *.dig set filetype=yaml
 	autocmd Syntax yaml setl indentkeys-=<:> indentkeys-=0#
 augroup END
+
+let g:cheatsheet#cheat_file = '~/.config/nvim/cheet.md'
+let g:cheatsheet#float_window = 1
+" you can change float window size.
+let g:cheatsheet#float_window_width_ratio = 0.6
+let g:cheatsheet#float_window_height_ratio = 0.6
