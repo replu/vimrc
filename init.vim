@@ -10,6 +10,7 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'haya14busa/vim-operator-flashy'
 Plug 'rhysd/vim-operator-surround'
 Plug 'kana/vim-operator-user'
+Plug 'itchyny/lightline.vim'
 
 " Util
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
