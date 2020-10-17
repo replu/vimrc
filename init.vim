@@ -26,6 +26,7 @@ Plug 'haya14busa/vim-edgemotion'
 Plug 'othree/html5.vim'
 Plug 't9md/vim-choosewin'
 Plug 'tomtom/tcomment_vim'
+Plug 'kristijanhusak/vim-carbon-now-sh'
 
 " Filer
 Plug 'Shougo/defx.nvim'
