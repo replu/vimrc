@@ -28,6 +28,11 @@ Plug 't9md/vim-choosewin'
 Plug 'tomtom/tcomment_vim'
 Plug 'kristijanhusak/vim-carbon-now-sh'
 
+" Markdown
+Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
+Plug 'dhruvasagar/vim-table-mode', {'for': 'markdown'}
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install', 'for': 'markdown' }
+
 " Filer
 Plug 'Shougo/defx.nvim'
 Plug 'kristijanhusak/defx-icons'
