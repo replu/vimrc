@@ -1,89 +1,10 @@
-call plug#begin('~/.nvim/plugged')
-
-" Color theme
-Plug 'cocopon/iceberg.vim'
-Plug 'altercation/vim-colors-solarized'
-Plug 'NLKNguyen/papercolor-theme'
-
-" Appearance
-Plug 'nathanaelkane/vim-indent-guides'
-Plug 'haya14busa/vim-operator-flashy'
-Plug 'rhysd/vim-operator-surround'
-Plug 'kana/vim-operator-user'
-Plug 'itchyny/lightline.vim'
-
-" Util
-Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-Plug 'tyru/open-browser-github.vim'
-Plug 'vim-scripts/open-browser.vim'
-Plug 'mattn/webapi-vim'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'mhinz/vim-startify'
-Plug 'glidenote/memolist.vim'
-Plug 'Shougo/denite.nvim'
-Plug 'kassio/neoterm'
-Plug 'cohama/lexima.vim'
-Plug 'haya14busa/vim-edgemotion'
-Plug 'othree/html5.vim'
-Plug 't9md/vim-choosewin'
-Plug 'tomtom/tcomment_vim'
-Plug 'kristijanhusak/vim-carbon-now-sh'
-
-" Markdown
-Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
-Plug 'dhruvasagar/vim-table-mode', {'for': 'markdown'}
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install', 'for': 'markdown' }
-
-" Filer
-Plug 'Shougo/defx.nvim'
-Plug 'kristijanhusak/defx-icons'
-Plug 'ryanoasis/vim-devicons'
-Plug 'kristijanhusak/defx-icons'
-
-
-Plug 'thinca/vim-quickrun'
-Plug 'sjl/gundo.vim'
-Plug 'bronson/vim-trailing-whitespace'
-Plug 'majutsushi/tagbar'
-
-" Template
-Plug 'mattn/sonictemplate-vim'
-
-" lsp
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
-
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
-
-Plug 'mattn/vim-goimports'
-
-Plug 'reireias/vim-cheatsheet'
-
-call plug#end()
-
-filetype plugin indent on
-
-let g:home = expand('~')
-let g:python_home = g:home . '/.pyenv/shims'
-let g:python_host_prog = g:python_home . '/python2'
-let g:python3_host_prog = g:python_home . '/python3'
-
-for plugin in glob(g:home.'/.config/nvim/plugins/*', 1, 1)
-	execute "source " . plugin
-endfor
-
 "------------------------------------------------------------
 "検索関係
 "------------------------------------------------------------
 "{{{
-" 検索時に大文字・小文字を区別しない。ただし、検索後に大文字小文字が混在しているときは区別する
 set ignorecase
 set smartcase
-" 検索結果をハイライト表示
 set hlsearch
-" 逐次検索をオン
 set incsearch
 " Kでカーソル下の単語のhelpを引く
 set keywordprg=:help
@@ -94,52 +15,26 @@ set keywordprg=:help
 "編集関係
 "------------------------------------------------------------
 "{{{
-" タブ設定
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set noexpandtab
-" '<'や'>'でインデントする際に'shiftwidth'の倍数に丸める
 set shiftround
-" オートインデント
 set autoindent
-" :make時に自動保存
 set autowrite
-" オートインデント、改行、インサートモード開始直後にバックスペースキーで削除できるようにする。
 set backspace=indent,eol,start
-" 検索時にファイルの下まで行ったら上まで戻る
 set wrapscan
-" 閉じ括弧入力時に対応している括弧が画面内にある場合に、一瞬開き括弧にジャンプ
 set showmatch
-" 対応括弧のハイライト表示を0.1秒に
 set matchtime=1
-" コマンドライン補完を便利に
 set wildmenu
-" テキスト挿入の自動折り返しに日本語を対応
 set formatoptions+=mM
-" 移動コマンドを使ったとき、行頭に移動しない
 set nostartofline
-" バッファが変更されているとき、コマンドをエラーにするのでなく、保存するかどうか確認を求める
 set confirm
-" ビジュアルモードで文字の無いところにもカーソル移動を可能に
 set virtualedit=block
-" キーコードはすぐにタイムアウト
 set notimeout
-" マッピングは200ms待つ
 set ttimeout ttimeoutlen=200
-" スワップファイルを作らない
 set noswapfile
-" バックアップファイルを作らない
 set nobackup
-" undoファイルを作らない
 set noundofile
-" ローカルカレントディレクトリを自動移動
 set autochdir
-" バッファ変更時に保存していない場合に確認しない
 set hidden
-" 対応括弧を追加
 set matchpairs& matchpairs+=<:>
-" スペルチェック時に日本語を除外
 set spelllang=en,cjk
 " ファイルを開いた時に，カーソル位置を最後にカーソルがあった位置まで移動
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -149,58 +44,130 @@ autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "norm
 "表示関係
 "------------------------------------------------------------
 "{{{
-" 行番号を表示
 set number
 set nolist
-" マルチバイト文字の表示をいいかんじに
 set ambiwidth=double
-" 折り返し
 set wrap
-" 長い行も表示
 set display=lastline
-" ステータスラインを常に表示する
 set laststatus=2
-" コマンドラインの高さを2行に
 set cmdheight=2
-" タイプ途中のコマンドを画面最下行に表示
 set showcmd
-" タイトル表示
 set title
-" ビープの代わりにビジュアルベル(画面フラッシュ)を使う
 set visualbell
-" ビジュアルベルも無効化する
 set t_vb=
-" フォールディング設定
 set foldmethod=marker
-" デフォルト不可視文字は美しくないのでUnicodeで綺麗に
-set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%,eol:↲
-" カーソルが内行の内容を隠蔽しない
 set conceallevel=0
-" 補完メニューの幅
 set pumheight=15
-" 補完時の表示オプション
 set completeopt=menu
-" True color
 set termguicolors
-" popup window の opacity
 set pumblend=20
-
-" don't give |ins-completion-menu| messages.
-" always show signcolumns
 set signcolumn=yes
-"}}}
 
+" 不可視文字の表示を変更
+set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%,eol:↲
+
+" タブ設定
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set noexpandtab
+"}}}
+"
+
+let g:home = expand('~')
+let g:python_home = g:home . '/.pyenv/shims'
+let g:python_host_prog = g:python_home . '/python2'
+let g:python3_host_prog = g:python_home . '/python3'
+
+call plug#begin('~/.nvim/plugged')
+
+" util
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+Plug 'editorconfig/editorconfig-vim'
+Plug 'Shougo/denite.nvim'
+Plug 'Shougo/neomru.vim'
+Plug 'kassio/neoterm'
+Plug 'thinca/vim-quickrun'
+Plug 'reireias/vim-cheatsheet'
+
+" appearance
+Plug 'itchyny/lightline.vim'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'haya14busa/vim-operator-flashy'
+
+" edit
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'cohama/lexima.vim'
+Plug 'tomtom/tcomment_vim'
+Plug 'sjl/gundo.vim'
+Plug 'haya14busa/vim-edgemotion'
+
+" text object
+Plug 'kana/vim-operator-user'
+Plug 'kana/vim-operator-replace'
+Plug 'rhysd/vim-operator-surround'
+
+" file explorer
+Plug 'Shougo/defx.nvim'
+Plug 'kristijanhusak/defx-icons'
+Plug 'ryanoasis/vim-devicons'
+Plug 't9md/vim-choosewin'
+
+" highlight and indent
+Plug 'sheerun/vim-polyglot'
+
+" lsp
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'mattn/vim-goimports', {'for': 'go'}
+Plug 'liuchengxu/vista.vim'
+
+" top page
+Plug 'mhinz/vim-startify'
+
+" markdown
+Plug 'dhruvasagar/vim-table-mode', {'for': 'markdown'}
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install', 'for': 'markdown' }
+
+" template
+Plug 'mattn/sonictemplate-vim'
+
+" integration browser
+Plug 'tyru/open-browser-github.vim'
+Plug 'vim-scripts/open-browser.vim'
+Plug 'mattn/webapi-vim'
+
+" integration https://carbon.now.sh
+Plug 'kristijanhusak/vim-carbon-now-sh'
+
+" color theme
+Plug 'cocopon/iceberg.vim'
+Plug 'altercation/vim-colors-solarized'
+Plug 'NLKNguyen/papercolor-theme'
+
+" help
+Plug 'vim-jp/vimdoc-ja'
+
+call plug#end()
+
+filetype plugin indent on
+
+for plugin in glob(g:home.'/.config/nvim/plugins/*', 1, 1)
+	execute "source " . plugin
+endfor
+
+" Help
+set helplang=ja
 
 " Color
 set t_Co=256
 syntax enable
 set background=dark
 
-"color schemes with plugin
-" colorscheme iceberg
+" color schemes with plugin
 colorscheme PaperColor
-
-let mapleader = "\<Space>"
 
 " Yの動作をDやCと同じにする
 map Y y$
@@ -217,9 +184,9 @@ nnoremap # #zz
 nnoremap g* g*zz
 nnoremap g# g#zz
 " .vimrcを開く
-nnoremap ,ev :tabe $HOME/.vimrc<CR>
+nnoremap <Leader>ev :tabe $HOME/.config/nvim/init.vim<CR>
 " .vimrcを再読み込み
-nnoremap ,rv :source $HOME/.vimrc<CR>
+nnoremap <Leader>rv :source $HOME/.config/nvim/init.vim<CR>
 " ヤンクした文字列でカーソル位置の単語を置換
 nnoremap <silent> cy  ce<C-r>0<ESC>:let@/=@1<CR>:noh<CR>
 vnoremap <silent> cy  c<C-r>0<ESC>:let@/=@1<CR>:noh<CR>
@@ -279,36 +246,6 @@ command! Splitterminal :call SplitTerminalFunc()
 " ESCでターミナルモードから抜ける
 tnoremap <silent> <ESC> <C-\><C-n>
 
-inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-
-" Shift + F で自動修正
-" original http://stackoverflow.com/questions/12374200/using-uncrustify-with-vim/15513829#15513829
-function! Preserve(command)
-    " Save the last search.
-    let search = @/
-    " Save the current cursor position.
-    let cursor_position = getpos('.')
-    " Save the current window position.
-    normal! H
-    let window_position = getpos('.')
-    call setpos('.', cursor_position)
-    " Execute the command.
-    execute a:command
-    " Restore the last search.
-    let @/ = search
-    " Restore the previous window position.
-    call setpos('.', window_position)
-    normal! zt
-    " Restore the previous cursor position.
-    call setpos('.', cursor_position)
-endfunction
-
-function! Autopep8()
-    call Preserve(':silent %!autopep8 -')
-endfunction
-
-autocmd FileType python nnoremap <S-f> :call Autopep8()<CR>
-
 "ファイルタイプに関係する設定
 augroup filetypeds
 	autocmd!
@@ -316,17 +253,37 @@ augroup filetypeds
 	autocmd BufNewFile,BufRead,BufReadPre *.{json} set filetype=json conceallevel=0
 	autocmd InsertEnter *.json setlocal conceallevel=0 concealcursor=
 	autocmd InsertLeave *.json setlocal conceallevel=0 concealcursor=inc
-	autocmd BufRead,BufNewFile,BufReadPre *.coffee   set filetype=coffee
 	autocmd BufRead,BufNewFile *.scss set filetype=scss.css
 	autocmd FileType scss set iskeyword+=-
 	autocmd BufNewFile,BufRead,BufReadPre *.{nvim} set filetype=vim conceallevel=0
-	" digdag's setting
 	autocmd BufNewFile,BufRead *.dig set filetype=yaml
+	autocmd BufRead,BufNewFile *.tf set filetype=terraform
 	autocmd Syntax yaml setl indentkeys-=<:> indentkeys-=0#
-augroup END
 
-let g:cheatsheet#cheat_file = '~/.config/nvim/cheet.md'
-let g:cheatsheet#float_window = 1
-" you can change float window size.
-let g:cheatsheet#float_window_width_ratio = 0.6
-let g:cheatsheet#float_window_height_ratio = 0.6
+	" python の場合 Shift + F で自動修正
+	" original http://stackoverflow.com/questions/12374200/using-uncrustify-with-vim/15513829#15513829
+	function! Preserve(command)
+		" Save the last search.
+		let search = @/
+		" Save the current cursor position.
+		let cursor_position = getpos('.')
+		" Save the current window position.
+		normal! H
+		let window_position = getpos('.')
+		call setpos('.', cursor_position)
+		" Execute the command.
+		execute a:command
+		" Restore the last search.
+		let @/ = search
+		" Restore the previous window position.
+		call setpos('.', window_position)
+		normal! zt
+		" Restore the previous cursor position.
+		call setpos('.', cursor_position)
+	endfunction
+
+	function! Autopep8()
+		call Preserve(':silent %!autopep8 -')
+	endfunction
+	autocmd FileType python nnoremap <S-f> :call Autopep8()<CR>
+augroup END
