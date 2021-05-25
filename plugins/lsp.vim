@@ -7,9 +7,10 @@ function! s:on_lsp_buffer_enabled() abort
 
   " 定義や参照へ移動
   nmap <buffer> gd <plug>(lsp-definition)
-  nmap <silent> <Leader>d :LspTypeDefinition<CR>
-  nmap <silent> <Leader>r :LspReferences<CR>
-  nmap <silent> <Leader>i :LspImplementation<CR>
+  nmap <silent> <leader>d :LspTypeDefinition<CR>
+  nmap <silent> <leader>r :LspReferences<CR>
+  nmap <silent> <leader>i :LspImplementation<CR>
+  nmap <silent> <leader>D :LspDocumentDiagnostics<CR>
 
   " 補完候補の移動と決定
   inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"

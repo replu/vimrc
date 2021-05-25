@@ -59,6 +59,8 @@ sG
 <F2>
 LSP Hover
 gk
+バッファを診断
+<leader>D
 
 定義に移動
 gd
@@ -69,10 +71,11 @@ gd
 インターフェイスの実装ｎ移動
 <Leader>i
 
+
 ドキュメントに対して実行すべきコマンドを問い合わせて実行する
-:LspCodeAction 
+:LspCodeAction
 ドキュメントに対して実行できるコマンドのリストを取得
-:LspCodeLens 
+:LspCodeLens
 
 ドキュメント内のエラーがQuickFixで一覧表示される
 :LspDocumentDiagnostics

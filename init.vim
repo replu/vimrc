@@ -227,6 +227,11 @@ map <C-N> :cnext<CR>
 map <C-M> :cprevious<CR>
 nnoremap <leader>a :cclose<CR>
 
+" location-list
+map <C-I> :lnext<CR>
+map <C-O> :lprevious<CR>
+nnoremap <leader>z :lclose<CR>
+
 " ビジュアルモードでインデント変更後に再選択
 vnoremap <  <gv
 vnoremap >  >gv
