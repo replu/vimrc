@@ -13,8 +13,10 @@ function! s:on_lsp_buffer_enabled() abort
   nmap <silent> <leader>D :LspDocumentDiagnostics<CR>
 
   " 補完候補の移動と決定
-  inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-  inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+  " inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+  " inoremap <expr> <S-Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+  imap <expr> <Tab>   pumvisible() ? "\<C-n>" : vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : "\<Tab>"
+  imap <expr> <S-Tab> pumvisible() ? "\<C-p>" : vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : "\<S-Tab>"
   inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
 endfunction
 
@@ -24,6 +26,14 @@ augroup lsp_install
 augroup END
 
 command! LspDebug let lsp_log_verbose=1 | let lsp_log_file = expand('~/lsp.log')
+
+let g:lsp_settings = {
+  \   'gopls': {
+  \     'initialization_options': {
+  \       'usePlaceholders': v:true,
+  \     },
+  \   },
+  \ }
 
 " filetypeがgoの時は複数のLSP Serverを起動する
 let g:lsp_settings_filetype_go = ['gopls', 'golangci-lint-langserver']
@@ -38,3 +48,17 @@ let g:goimports_simplify = 1
 let g:vista_default_executive = 'vim_lsp'
 
 nnoremap <leader>t :Vista!!<CR>
+
+" snippet
+let g:vsnip_snippet_dir = expand('~/.config/nvim/.vsnip')
+
+" expand
+imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
+smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
+
+" expand or jump
+imap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
+smap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
+
+smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'

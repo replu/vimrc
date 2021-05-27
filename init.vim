@@ -133,6 +133,9 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install', 'for': 'm
 
 " template
 Plug 'mattn/sonictemplate-vim'
+" snippet
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'
 
 " integration browser
 Plug 'tyru/open-browser-github.vim'
