@@ -231,8 +231,8 @@ map <C-M> :cprevious<CR>
 nnoremap <leader>a :cclose<CR>
 
 " location-list
-map <C-I> :lnext<CR>
-map <C-O> :lprevious<CR>
+map <C-;> :lnext<CR>
+map <C-'> :lprevious<CR>
 nnoremap <leader>z :lclose<CR>
 
 " ビジュアルモードでインデント変更後に再選択
