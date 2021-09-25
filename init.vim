@@ -150,9 +150,15 @@ Plug 'cocopon/iceberg.vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'NLKNguyen/papercolor-theme'
 
+" test
+Plug 'vim-test/vim-test'
+Plug 'tpope/vim-dispatch'
+
+" debug
+Plug 'sebdah/vim-delve'
+
 " help
 Plug 'vim-jp/vimdoc-ja'
-
 call plug#end()
 
 filetype plugin indent on
