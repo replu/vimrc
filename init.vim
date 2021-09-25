@@ -153,6 +153,7 @@ Plug 'NLKNguyen/papercolor-theme'
 " test
 Plug 'vim-test/vim-test'
 Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-projectionist'
 
 " debug
 Plug 'sebdah/vim-delve'
