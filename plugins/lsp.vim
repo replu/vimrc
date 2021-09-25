@@ -38,7 +38,7 @@ let g:lsp_settings = {
 " filetypeがgoの時は複数のLSP Serverを起動する
 let g:lsp_settings_filetype_go = ['gopls', 'golangci-lint-langserver']
 
-let g:lsp_text_edit_enabled = 1
+" let g:lsp_text_edit_enabled = 1
 
 " vim-goimports
 let g:goimports = 1
