@@ -124,6 +124,9 @@ Plug 'mattn/vim-lsp-settings'
 Plug 'mattn/vim-goimports', {'for': 'go'}
 Plug 'liuchengxu/vista.vim'
 
+" suggets
+Plug 'github/copilot.vim'
+
 " top page
 Plug 'mhinz/vim-startify'
 
