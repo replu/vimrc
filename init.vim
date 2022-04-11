@@ -161,6 +161,9 @@ Plug 'tpope/vim-projectionist'
 " debug
 Plug 'sebdah/vim-delve'
 
+" sql
+Plug 'mattn/vim-sqlfmt'
+
 " help
 Plug 'vim-jp/vimdoc-ja'
 call plug#end()

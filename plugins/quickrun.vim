@@ -5,4 +5,5 @@ let g:quickrun_config = {
 			\   "outputter/buffer/close_on_empty" : 1
 			\ },
 			\}
+
 nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
