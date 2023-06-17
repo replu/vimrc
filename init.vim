@@ -115,6 +115,7 @@ Plug 't9md/vim-choosewin'
 
 " highlight and indent
 Plug 'sheerun/vim-polyglot'
+Plug 'junegunn/vim-easy-align'
 
 " lsp
 Plug 'prabirshrestha/asyncomplete.vim'
@@ -125,7 +126,7 @@ Plug 'mattn/vim-goimports', {'for': 'go'}
 Plug 'liuchengxu/vista.vim'
 
 " suggets
-Plug 'github/copilot.vim'
+" Plug 'github/copilot.vim'
 
 " top page
 Plug 'mhinz/vim-startify'
@@ -241,6 +242,7 @@ nnoremap st :<C-u>tabnew<CR>
 " quickfix
 map <C-N> :cnext<CR>
 map <C-M> :cprevious<CR>
+map <C-P> :cprevious<CR>
 nnoremap <leader>a :cclose<CR>
 
 " location-list

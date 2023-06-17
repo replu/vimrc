@@ -72,8 +72,8 @@ function! s:denite_filter_my_settings() abort
 endfunction
 
 " バッファ一覧
-noremap <C-P> :Denite buffer<CR>
-nnoremap sB :<C-u>Denite buffer<CR>
+" noremap <C-P> :Denite buffer<CR>
+nnoremap sb :<C-u>Denite buffer<CR>
 
 " 最近使ったファイルの一覧
 noremap <C-Z> :Denite file_mru<CR>
